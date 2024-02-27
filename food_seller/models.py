@@ -8,6 +8,7 @@ class Food(models.Model) :
     food_desc = models.TextField()
     food_price = models.FloatField(default=0,null=False)
     food_stock = models.IntegerField(default=0,null=False)
+    food_category = models.CharField(max_length=20,null=False,default='Food')
 
     def __str(self) :
         return "{}. {}".format(self.id,self.food_name)
