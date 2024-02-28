@@ -5,4 +5,6 @@ app_name='food_seller'
 
 urlpatterns = [
     path('',views.index,name='index'),
+    # detail food
+    path('<str:food_name>',views.food_detail,name='food_detail')
 ]
