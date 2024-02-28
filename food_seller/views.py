@@ -12,14 +12,14 @@ def index(request) :
         'title' : 'We sell food and beverages',
         'food_list' : food_list, 
     }
-    print(food_list)
+    # print(food_list)
     return render(request,'food_seller/index.html',ctx)
 
 # function for detail of food
 def food_detail(request,name) :
     # get food based on food_name
     detail = Food.objects.get(food_name=name)
-    print(detail)
+    # print(detail)
 
     ctx = {
         'title' : 'Item Details',
@@ -39,10 +39,22 @@ def food_create(request):
         'title' : 'Add Food Form',
         'form' : form_data,
     }
-    return render(request,'food_seller/food-add.html',ctx)
+    return render(request,'food_seller/food_form.html',ctx)
 
 def food_edit(request,food_id):
-    pass
+    food = Food.objects.get(id=food_id)
+    form_data = FoodForm(request.POST or None,instance=food)
+
+    if form_data.is_valid() :
+        form_data.save()
+        return redirect('food_seller:index')
+
+    ctx = {
+        'title' : 'Food Edit Form',
+        'form' : form_data
+    }
+
+    return render(request,'food_seller/food_form.html',ctx)
 
 def food_delete(request,food_id):
     pass
