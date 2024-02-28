@@ -16,9 +16,9 @@ def index(request) :
     return render(request,'food_seller/index.html',ctx)
 
 # function for detail of food
-def food_detail(request,name) :
-    # get food based on food_name
-    detail = Food.objects.get(food_name=name)
+def food_detail(request,food_id) :
+    # get food based on food id
+    detail = Food.objects.get(id=food_id)
     # print(detail)
 
     ctx = {
@@ -48,6 +48,7 @@ def food_edit(request,food_id):
     if form_data.is_valid() :
         form_data.save()
         return redirect('food_seller:index')
+        # return redirect('food_seller:edit food_id=food.id')
 
     ctx = {
         'title' : 'Food Edit Form',
@@ -58,4 +59,15 @@ def food_edit(request,food_id):
     return render(request,'food_seller/food_form.html',ctx)
 
 def food_delete(request,food_id):
-    pass
+    food = Food.objects.get(id=food_id)
+
+    if request.method == "POST":
+        food.delete()
+        return redirect('food_seller:index')
+    
+    ctx = {
+        'title' : 'Food Delete Form',
+        'food' : food,
+    }
+
+    return render(request,'food_seller/food_delete.html',ctx)

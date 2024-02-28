@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-
+    {{title}}
 {% endblock title %}
 
 
@@ -11,10 +11,12 @@
     <img src="{% static detail.food_image %}" class="card-img-top rounded mx-auto d-block img-fluid" alt="... ">
     <div class="card-body">
         <h5 class="card-title">
-            <a href="{% url 'food_seller:food_detail' name=detail.food_name %}">{{detail.food_name}}</a>
+            <a href="{% url 'food_seller:food_detail' food_id=detail.id %}">{{detail.food_name}}</a>
         </h5>
         <p class="card-text">{{detail.food_desc}}</p>
-        <p class="card-text"><i class="text-muted">Price : ${{detail.food_price}}</i></p>
+        <p class="card-text"><i class="text-muted">Price : ${{detail.food_price}} | Stock : {{detail.food_stock}}</i></p>
     </div>
+    <a href="{% url 'food_seller:food_edit' food_id=detail.id %}" class="btn btn-primary">Update</a>
+    <a href="{% url 'food_seller:food_delete' food_id=detail.id %}" class="btn btn-danger">Delete</a>
 </div>
 {% endblock content %}

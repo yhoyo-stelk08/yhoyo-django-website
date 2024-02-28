@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{title}}
+{% endblock title %}
+
+
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    <h2>Are you sure you want to delete {{food.food_name}}</h2>
+    <button type="submit" class="btn btn-primary">Confirm</button>
+</form>
+{% endblock content %}
