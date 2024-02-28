@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import Food
+from .forms import FoodForm
 
 # Create your views here.
 
@@ -26,4 +27,18 @@ def food_detail(request,name) :
     }
     return render(request, 'food_seller/detail.html', ctx)
     
+def food_create(request):
+    form_data = FoodForm(request.POST or None)
 
+    if form_data.is_valid() :
+        form_data.save()
+
+        return redirect('food_seller:index')
+    
+    return render(request,'food_seller/food-add.html',{'form' : form_data})
+
+def food_edit(request,food_id):
+    pass
+
+def food_delete(request,food_id):
+    pass

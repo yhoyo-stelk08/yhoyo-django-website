@@ -6,6 +6,9 @@ app_name='food_seller'
 urlpatterns = [
     path('',views.index,name='index'),
     # detail food
-    # path()
-    path('<str:name>',views.food_detail,name='food_detail')
+    path('<str:name>',views.food_detail,name='food_detail'),
+    # add food
+    path('create/',views.food_create,name='create'),
+    # edit food
+    # delete food
 ]
