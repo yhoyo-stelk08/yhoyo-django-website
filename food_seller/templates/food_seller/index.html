@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block title %}
 {{ title }}
@@ -7,18 +7,27 @@
 
 
 {% block content %}
-<div class="card-group">
+<div class="row">
     {% for food in food_list %}
-    <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">
-                <a href="{% url 'food_seller:food_detail' food_name=food.food_name %}">{{food.food_name}}</a>
-            </h5>
-            <p class="card-text">{{food.food_desc|truncatechars:200}}</p>
-            <p class="card-text"><small class="text-muted">${{food.food_price}}</small></p>
+    <div class="col-md-6 mt-1">
+        <div class="card">
+            <img src="{% static food.food_image %}" class="card-img-top rounded mx-auto d-block" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="{% url 'food_seller:food_detail' name=food.food_name %}">{{food.food_name}}</a>
+                </h5>
+                <p class="card-text">{{food.food_desc|truncatechars:200}}</p>
+                <p class="card-text"><i class="text-muted">Price : ${{food.food_price}}</i></p>
+                <a href="{% url 'food_seller:food_detail' name=food.food_name %}" class="btn btn-primary">Details</a>
+            </div>
         </div>
     </div>
+
     {% endfor %}
+
 </div>
+
+
+
+
 {% endblock content %}
