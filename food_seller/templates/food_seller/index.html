@@ -18,7 +18,7 @@
                 </h5>
                 <p class="card-text">{{food.food_desc|truncatechars:200}}</p>
                 <p class="card-text"><i class="text-muted">Price : ${{food.food_price}}</i></p>
-                <a href="#" class="btn btn-primary">Details</a>
+                <a href="{% url 'food_seller:food_detail' name=food.food_name %}" class="btn btn-primary">Details</a>
             </div>
         </div>
     </div>
