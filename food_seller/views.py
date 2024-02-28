@@ -35,7 +35,11 @@ def food_create(request):
 
         return redirect('food_seller:index')
     
-    return render(request,'food_seller/food-add.html',{'form' : form_data})
+    ctx = {
+        'title' : 'Add Food Form',
+        'form' : form_data,
+    }
+    return render(request,'food_seller/food-add.html',ctx)
 
 def food_edit(request,food_id):
     pass

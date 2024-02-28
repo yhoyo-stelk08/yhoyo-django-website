@@ -12,7 +12,7 @@ class Food(models.Model) :
     food_price = models.FloatField(default=0,null=False)
     food_stock = models.IntegerField(default=0,null=False)
     food_category = models.CharField(max_length=2,choices=FOOD_CATEGORY,default='F')
-    food_image = models.CharField(max_length=255,blank=True,default="",null=True)
+    food_image = models.CharField(max_length=255,blank=True,default="img/img_coming_soon.png",null=True)
 
     def __str__(self) :
         return "{}".format(self.food_name)
