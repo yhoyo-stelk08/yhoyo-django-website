@@ -9,11 +9,12 @@ def index(request) :
         'title' : 'We sell food and beverages',
         'food_list' : food_list,
     }
+    print(food_list)
     return render(request,'food_seller/index.html',ctx)
 
 
-def food_detail(request,food_name) :
-    food_detail = Food.objects.get(food_name=food_name)
+def food_detail(request,name) :
+    food_detail = Food.objects.get(food_name=name)
     print(food_detail)
 
     ctx = {
