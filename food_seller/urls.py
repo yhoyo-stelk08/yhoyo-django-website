@@ -8,7 +8,7 @@ urlpatterns = [
     # detail food
     path('<str:name>',views.food_detail,name='food_detail'),
     # add food
-    path('create/',views.food_create,name='create'),
+    path('create/',views.food_create,name='food_create'),
     # edit food
     # delete food
 ]
