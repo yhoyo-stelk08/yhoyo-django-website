@@ -7,7 +7,7 @@ from .forms import FoodForm
 
 # function for index of food_seller
 def index(request) :
-    food_list = Food.objects.all()
+    food_list = Food.objects.all().order_by('id')
     ctx = {
         'title' : 'We sell food and beverages',
         'food_list' : food_list, 
@@ -51,7 +51,8 @@ def food_edit(request,food_id):
 
     ctx = {
         'title' : 'Food Edit Form',
-        'form' : form_data
+        'form' : form_data,
+        'food' : food,
     }
 
     return render(request,'food_seller/food_form.html',ctx)

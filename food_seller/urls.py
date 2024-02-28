@@ -10,6 +10,6 @@ urlpatterns = [
     # add food
     path('create/',views.food_create,name='food_create'),
     # edit food
-    path('edit/<int:id>',views.food_edit,name='food_edit')
+    path('edit/<int:food_id>',views.food_edit,name='food_edit')
     # delete food
 ]
