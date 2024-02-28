@@ -48,7 +48,7 @@ def food_edit(request,food_id):
     if form_data.is_valid() :
         form_data.save()
         return redirect('food_seller:index')
-        # return redirect('food_seller:edit food_id=food.id')
+        # return render('food_seller/edit/'+str(food.id))
 
     ctx = {
         'title' : 'Food Edit Form',
