@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 # import auth forms
-from django.contrib.auth.forms import UserCreationForm
+# from django.contrib.auth.forms import UserCreationForm
+from .forms import RegisterUserForm # import our custom form which extends UserCreationForm
 # import messages function
 from django.contrib import messages
 
@@ -12,13 +13,14 @@ def index(request):
 
 def register(request):
     if request.method == "POST" :
-        form_user = UserCreationForm(request.POST)
+        form_user = RegisterUserForm(request.POST)
         if form_user.is_valid() :
+            form_user.save()
             username = form_user.cleaned_data.get('username')
             messages.success(request,f'Welcome {username} , your account has been created')
             return redirect('users:index')
     else :
-        form_user = UserCreationForm()
+        form_user = RegisterUserForm()
     
     ctx = {
         'title' : 'Form Register User',
