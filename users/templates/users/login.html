@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load bootstrap4 %}
 
 {% block content %}
 <div class="container">
@@ -17,7 +17,7 @@
                             alt="profile">
                     </div>
 
-                    {{ form }}
+                    {% bootstrap_form form %}
                     <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-5 w-100">Login</button>
                     </div>
                     <div id="emailHelp" class="form-text text-center mb-5 text-dark">Not

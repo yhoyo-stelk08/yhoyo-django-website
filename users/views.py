@@ -19,7 +19,7 @@ def register(request):
             form_user.save()
             username = form_user.cleaned_data.get('username')
             messages.success(request,f'Welcome {username} , your account has been created')
-            return redirect('users:index')
+            return redirect('login')
     else :
         form_user = RegisterUserForm()
     
