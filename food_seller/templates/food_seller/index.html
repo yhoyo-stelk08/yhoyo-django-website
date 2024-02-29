@@ -11,7 +11,7 @@
     {% for food in food_list %}
     <div class="col-md-6 mt-1">
         <div class="card">
-            <img src="{% static food.food_image %}" class="card-img-top rounded mx-auto d-block" alt="...">
+            <img src="{% static 'img/' %}{{food.food_image}}" class="card-img-top rounded mx-auto d-block" alt="...">
             <div class="card-body">
                 <h5 class="card-title">
                     <a href="{% url 'food_seller:food_detail' food_id=food.id %}">{{food.food_name}}</a>

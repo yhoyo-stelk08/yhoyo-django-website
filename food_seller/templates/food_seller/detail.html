@@ -8,7 +8,7 @@
 
 {% block content %}
 <div class="card">
-    <img src="{% static detail.food_image %}" class="card-img-top rounded mx-auto d-block img-fluid" alt="... ">
+    <img src="{% static 'img/' %}{{ detail.food_image }}" class="card-img-top rounded mx-auto d-block img-fluid" alt="... ">
     <div class="card-body">
         <h5 class="card-title">
             <a href="{% url 'food_seller:food_detail' food_id=detail.id %}">{{detail.food_name}}</a>
