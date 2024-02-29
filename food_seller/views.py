@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
+from django.views.generic import ListView,DetailView
 from .models import Food
 from .forms import FoodForm
 
@@ -15,6 +16,13 @@ def index(request) :
     # print(food_list)
     return render(request,'food_seller/index.html',ctx)
 
+# Class Based View for index
+class FoodListView(ListView):
+    model = Food
+    template_name = "food_seller/index.html"
+    context_object_name = 'food_list'
+    extra_context = {'title': 'We sell food and beverages'}
+
 # function for detail of food
 def food_detail(request,food_id) :
     # get food based on food id
@@ -26,6 +34,12 @@ def food_detail(request,food_id) :
         'detail' : detail,
     }
     return render(request, 'food_seller/detail.html', ctx)
+
+class FoodDetailView(DetailView):
+    model = Food
+    template_name = "food_seller/detail.html"
+    context_object_name = 'detail'
+    extra_content = {'title' : 'Food Detail'}
     
 def food_create(request):
     form_data = FoodForm(request.POST or None)
