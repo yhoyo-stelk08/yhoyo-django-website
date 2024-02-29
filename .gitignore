@@ -4,3 +4,4 @@ food_seller/__pycache__/*
 food_seller/migrations/__pycache__/*
 users/__pycache__/*
 users/migrations/__pycache__/*
+profile_pictures/*
