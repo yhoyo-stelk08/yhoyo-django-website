@@ -28,11 +28,3 @@ def register(request):
         'form_user' : form_user,
     }
     return render(request,'users/register.html',ctx)
-
-# user login function
-def user_login(request) :
-    pass
-
-# user logout function
-def user_logout(request):
-    pass
