@@ -141,3 +141,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Redirect page when user success to login
 LOGIN_REDIRECT_URL = 'users:index'
+
+# redirect page when user need to access page which required to login
+LOGIN_URL = 'login'

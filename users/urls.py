@@ -7,4 +7,5 @@ urlpatterns = [
     path('',views.index,name='index'),
     # add register view
     path('register/',views.register,name='register'),
+    path('profile/',views.profiles,name='profile'),
 ]

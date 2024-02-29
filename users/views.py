@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 # import auth forms
 # from django.contrib.auth.forms import UserCreationForm
 from .forms import RegisterUserForm # import our custom form which extends UserCreationForm
+from django.contrib.auth.decorators import login_required
 # import messages function
 from django.contrib import messages
 
@@ -28,3 +29,10 @@ def register(request):
         'form_user' : form_user,
     }
     return render(request,'users/register.html',ctx)
+
+@login_required
+def profiles(request) :
+    ctx = {
+        'title' : 'User Profiles',
+    }
+    return render(request,'users/profile.html',ctx)
