@@ -19,9 +19,15 @@ from . import views
 from users import views as user_views
 
 urlpatterns = [
+    # admin path
     path('admin/', admin.site.urls),
+    # food_seller app path
     path('food_seller/', include('food_seller.urls',namespace='food_seller')),
+    # users app path
     path('users/', include('users.urls',namespace='users')),
+    path('login/',user_views.user_login,name='login'),
+    path('logout/',user_views.user_logout,name='logout'),
+    # home index path
     path('',views.index,name='index'),
     
 ]

@@ -11,6 +11,7 @@ def index(request):
     }
     return render(request,'users/index.html',ctx)
 
+# register user function
 def register(request):
     if request.method == "POST" :
         form_user = RegisterUserForm(request.POST)
@@ -27,3 +28,11 @@ def register(request):
         'form_user' : form_user,
     }
     return render(request,'users/register.html',ctx)
+
+# user login function
+def user_login(request) :
+    pass
+
+# user logout function
+def user_logout(request):
+    pass
