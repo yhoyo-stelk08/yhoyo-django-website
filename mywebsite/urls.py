@@ -18,6 +18,9 @@ from django.urls import path,include
 from . import views
 # from users import views as user_views
 from django.contrib.auth import views as auth_views
+# setting for user uploaded files
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     # admin path
@@ -32,3 +35,7 @@ urlpatterns = [
     path('',views.index,name='index'),
     
 ]
+
+urlpatterns += [
+    # ... the rest of your URLconf goes here ...
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

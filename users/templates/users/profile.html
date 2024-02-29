@@ -8,6 +8,7 @@
 
 
 {% block content %}
-    {{user.username}}
+    <h1>{{user.first_name}} {{ user.last_name }}</h1>
+    <img src="{{user.profile.image.url}}" class="img img-fluid img-thumbnail" style="width: 150px;height: 200px;" alt="">
 {% endblock content %}
     
