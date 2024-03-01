@@ -19,8 +19,8 @@
     </div>
 
     {% if user.is_authenticated %}
-    <a href="{% url 'food_seller:food_edit' food_id=detail.id %}" class="btn btn-primary">Update</a>
-    <a href="{% url 'food_seller:food_delete' food_id=detail.id %}" class="btn btn-danger">Delete</a>
+    <a href="{% url 'food_seller:food_edit' pk=detail.id %}" class="btn btn-primary">Update</a>
+    <a href="{% url 'food_seller:food_delete' pk=detail.id %}" class="btn btn-danger">Delete</a>
     {% endif %}
 
 
